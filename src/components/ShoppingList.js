@@ -6,10 +6,20 @@ function ShoppingList({ items }) {
   const[selectedCategory,setCategory] = useState("All")
 
   function categoryFinder(event){
+  
     setCategory(event.target.value)
   }
-
-  const filterItem = items.filter((product) => product.category ===selectedCategory)
+  
+    
+  const filterItem = items.filter((product) => 
+  {
+    if (selectedCategory==="All"){
+      return true
+    }
+    else{
+     return product.category ===selectedCategory}
+  }
+  )
 
   return (
     <div className="ShoppingList">
